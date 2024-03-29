@@ -6,6 +6,7 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     public static NoteManager Instance;
+    [SerializeField] private NoteGroup[] noteGroupArr;
 
     private void Awake()
     {
@@ -13,7 +14,13 @@ public class NoteManager : MonoBehaviour
     }
     public void OnInput(KeyCode keyCode)
     {
-        Debug.Log("KeyCode = " + keyCode);
+        if (keyCode == KeyCode.A)
+        {
+            noteGroupArr[0].OnInput(true);
+        }
+        if (keyCode == KeyCode.S)
+        {
+            noteGroupArr[1].OnInput(true);
+        }
     }
-
 }

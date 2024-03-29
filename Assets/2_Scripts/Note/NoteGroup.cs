@@ -10,7 +10,12 @@ public class NoteGroup : MonoBehaviour
     [SerializeField] private GameObject noteSpawn;
     [SerializeField] private float noteGap = 6f;
 
-    private List<Note> noteList = new List<Note>();
+    [SerializeField] private SpriteRenderer btnSpriteRenderer;
+    [SerializeField] private Sprite normalBtnSprite;
+    [SerializeField] private Sprite selectBtnSprite;
+    [SerializeField] private Animation anim;
+
+   private List<Note> noteList = new List<Note>();
     void Start()
     {
         for(int i = 0; i < noteMaxNum; i++)
@@ -28,6 +33,19 @@ public class NoteGroup : MonoBehaviour
 
     void Update()
     {
-        
+
+    }
+ 
+    public void OnInput(bool inSelect)
+    {
+        if (inSelect)       
+        {
+            anim.Play();
+            btnSpriteRenderer.sprite = selectBtnSprite;
+        }
+    }
+  public void callAniDone()
+    {
+        btnSpriteRenderer.sprite = normalBtnSprite;
     }
 }

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A
+  m_text: S
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8695403597377418809}
   - component: {fileID: 6706371960934444427}
-  - component: {fileID: 2884770395730369325}
+  - component: {fileID: 6984352490385154692}
   m_Layer: 0
   m_Name: NoteGroup
   m_TagString: Untagged
@@ -508,24 +508,23 @@ MonoBehaviour:
   notePrefab: {fileID: 1360641955908500315, guid: d643ceb78af2af94b84cd335e487e5b8, type: 3}
   noteSpawn: {fileID: 3325580000556783389}
   noteGap: 7.2
---- !u!95 &2884770395730369325
-Animator:
-  serializedVersion: 5
+  btnSpriteRenderer: {fileID: 7527945464739749775}
+  normalBtnSprite: {fileID: 21300000, guid: d7b61edc0b017174095824530172ad1f, type: 3}
+  selectBtnSprite: {fileID: 21300000, guid: 4fce3950ae84d9c46a154454c898bf17, type: 3}
+  anim: {fileID: 6984352490385154692}
+--- !u!111 &6984352490385154692
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6089225369782243635}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: adcceee1d05e4ce408ff4257c3ee8382, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: a2007a8687b82a04296b5c3e946688b7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a2007a8687b82a04296b5c3e946688b7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
