@@ -23,7 +23,12 @@ public class GameManager : MonoBehaviour
         {
             score--;
         }
-       UiManager.instance.OnScoreChange(this.score, maxScore);
+        UiManager.instance.OnScoreChange(this.score, maxScore);
+    }
+    private void Start()
+    {
+        UiManager.instance.OnScoreChange(this.score, maxScore);
+        NoteManager.Instance.Create();
     }
 
 }

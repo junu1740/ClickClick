@@ -5,6 +5,12 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
+    private List<KeyCode> keyCodeList = new List<KeyCode>();
+
+    public void AddKeyCode(KeyCode keyCode)
+    {
+        keyCodeList.Add(keyCode);
+    }
 
     public void Awake()
     {
@@ -13,19 +19,13 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) 
+        foreach (KeyCode keyCode in keyCodeList)
         {
-           NoteManager.Instance.OnInput(KeyCode.A);
+            if(Input.GetKeyDown(keyCode))
+            {
+                NoteManager.Instance.OnInput(keyCode);
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            NoteManager.Instance.OnInput(KeyCode.S);
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            NoteManager.Instance.OnInput(KeyCode.D);
-        }
+        
     }
 }
