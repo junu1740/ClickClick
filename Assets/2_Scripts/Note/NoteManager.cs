@@ -32,9 +32,11 @@ public class NoteManager : MonoBehaviour
         Instance = this;
     }
 
-    public void CreateNoteGroup()
+    public void CreateNoteGroup()                                  
     {
        int noteGroupCount = noteGroupList.Count;
+        if (wholeKeyCodeArr.Length <= noteGroupCount)
+            return;
         KeyCode keyCode = wholeKeyCodeArr[noteGroupCount];
         CreateNoteGroup(keyCode);
     }
