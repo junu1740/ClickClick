@@ -21,7 +21,7 @@ public class Note : MonoBehaviour
         spriteRenderer.sprite = isApple ? appleSprite : blueberrySprite;
     }
 
-
+     
    
     public void DeleteNote()
     {

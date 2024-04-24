@@ -1187,7 +1187,7 @@ MonoBehaviour:
   NoteGroupCreateScore: 10
   gameOverObj: {fileID: 1236708916}
   gameClearObj: {fileID: 1740815266}
-  maxtime: 100
+  maxtime: 5
 --- !u!4 &1652140974
 Transform:
   m_ObjectHideFlags: 0
