@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
                 yield break;
             }
         }
-        gameOverObj.SetActive(true);
+        SceneManager.LoadScene(2);
     }
 
 }

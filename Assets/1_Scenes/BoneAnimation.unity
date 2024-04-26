@@ -399,8 +399,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1028293301}
-        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: Restart
+        m_TargetAssemblyTypeName: OverBtn, Assembly-CSharp
+        m_MethodName: start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028293296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a84e7f335994346820507732155eab, type: 3}
+  m_Script: {fileID: 11500000, guid: 15b8bc30a8d017c44b2515fff5ded0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1107507034
@@ -799,7 +799,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 205602dfb74f7f54db801db42786742b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5f7c53d9a8e25c74d8889a369efe05e1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class OverBtn : MonoBehaviour
 {
-
     public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void start()
     {
         SceneManager.LoadScene(0);
     }
