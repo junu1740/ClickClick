@@ -5,10 +5,11 @@ using UnityEngine;
 public class Music : MonoBehaviour
 {
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
+   
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        gameObject.AddComponent<AudioSource>();
         audioSource.Play();
     }
 

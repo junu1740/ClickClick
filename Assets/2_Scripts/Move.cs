@@ -17,6 +17,7 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I)) 
         {
             anim.CrossFade("New Animation", 0, 0);
+            
         } 
 
         else if (Input.GetKeyDown(KeyCode.A))
@@ -32,6 +33,7 @@ public class Move : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.W))
         {
             anim.CrossFade("Walk", 0, 0);
+            
         }
 
         

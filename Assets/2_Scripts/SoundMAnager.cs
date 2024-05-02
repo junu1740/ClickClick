@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundMAnager : MonoBehaviour
 {
-   public static SoundMAnager Instance;
-    public AudioBehaviour[] audioClips;
+    public static SoundMAnager Instance;
+    public AudioClip[] audioClips;
 
     private AudioSource[] audioSources;
+
 
     private void Awake()
     {
         Instance = this;
     }
 
-     void Start()
+    void Start()
     {
-        audioSources = new AudioSource[audioClips.Length];  
+        audioSources = new AudioSource[audioClips.Length];
 
 
         for (int i = 0; i < audioClips.Length; i++)
@@ -27,8 +26,8 @@ public class SoundMAnager : MonoBehaviour
     }
 
 
-    public void Sound()
+    public void Sound(int index)
     {
-        audioSources[0].Play();
+        audioSources[index].Play();
     }
 }

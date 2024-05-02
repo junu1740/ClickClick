@@ -27,13 +27,15 @@ public class Note : MonoBehaviour
     {
         if( this.isApple )
         {
-            SoundMAnager.Instance.Sound();
+            SoundMAnager.Instance.Sound(0);
+            
         }
         else
         {
-            SoundMAnager.Instance.Sound();
+            SoundMAnager.Instance.Sound(1);
         }
         GameManager.Instance.CalculateScore(isApple);
+      
         Destroy();
     }
 

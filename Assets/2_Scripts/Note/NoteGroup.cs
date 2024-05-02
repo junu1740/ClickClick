@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NoteGroup : MonoBehaviour
 {
@@ -17,7 +18,19 @@ public class NoteGroup : MonoBehaviour
     [SerializeField] private Animation anim;
     private KeyCode keyCode;
 
+    AudioSource audioSource;
 
+    public AnimationClip spawnanim;
+    public AnimationClip Btnanim;
+
+    public void Start()
+    {
+        anim.clip = spawnanim;
+        anim.Play();
+        anim.clip = Btnanim;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+    }
     public KeyCode KeyCode
     {
         get

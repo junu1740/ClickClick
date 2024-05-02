@@ -1,5 +1,3 @@
-
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +13,12 @@ public class NoteManager : MonoBehaviour
     };
     [SerializeField] private int initNoteGroupNum = 2;
 
+    public static NoteManager Instance;
+    private List<NoteGroup> noteGroupList = new List<NoteGroup>();
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void Create()
     {
         for (int i = 0; i < initNoteGroupNum; i++)
@@ -24,17 +28,13 @@ public class NoteManager : MonoBehaviour
     }
 
 
-    public static NoteManager Instance;
-    private List<NoteGroup> noteGroupList =  new List<NoteGroup>();
 
-    private void Awake()
-    {
-        Instance = this;
-    }
 
-    public void CreateNoteGroup()                                  
+    public void CreateNoteGroup()
     {
-       int noteGroupCount = noteGroupList.Count;
+        SoundMAnager.Instance.Sound(2);
+        Debug.Log("succes");
+        int noteGroupCount = noteGroupList.Count;
         if (wholeKeyCodeArr.Length <= noteGroupCount)
             return;
         KeyCode keyCode = wholeKeyCodeArr[noteGroupCount];
@@ -44,8 +44,9 @@ public class NoteManager : MonoBehaviour
 
     public void CreateNoteGroup(KeyCode keyCode)
     {
-       GameObject noteGroupObj = Instantiate(noteGroupPrefab);
+        GameObject noteGroupObj = Instantiate(noteGroupPrefab);
         noteGroupObj.transform.position = Vector3.right * noteGroupList.Count * noteGroupGap;
+
 
         NoteGroup noteGroup = noteGroupObj.GetComponent<NoteGroup>();
         noteGroup.Create(keyCode);
@@ -55,8 +56,8 @@ public class NoteManager : MonoBehaviour
 
     public void OnInput(KeyCode keyCode)
     {
-        int randld = Random.Range(0,2);
-        bool isApple = randld == 0? true : false;
+        int randld = Random.Range(0, 2);
+        bool isApple = randld == 0 ? true : false;
 
         foreach (NoteGroup noteGroup in noteGroupList)
         {

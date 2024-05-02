@@ -5,6 +5,7 @@ using UnityEngine;
 public class UiManager : MonoBehaviour
 {
     public static UiManager instance;
+    
 
     [SerializeField] private Image scoreImg;
     [SerializeField] private TextMeshProUGUI scoreTmp;

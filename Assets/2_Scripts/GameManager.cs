@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,38 +9,50 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int NoteGroupCreateScore;
     [SerializeField] private GameObject gameOverObj;
     [SerializeField] private GameObject gameClearObj;
-    private int score;
+
     private int nextNoteGroupUnlockCnt;
 
     [SerializeField] private float maxtime = 30f;
+    [HideInInspector] public float myTime;
+    [HideInInspector] public float minTime;
+
+
+
+    public bool isGameClear;
+    public bool isGameOver;
+
     public bool IsGameDone
     {
         get
         {
-            if(gameClearObj.activeSelf || gameOverObj.activeSelf)
-                return true;
-            else
-            return false;
-            
+            if (isGameClear || isGameOver)
+            {
+                minTime = PlayerPrefs.GetFloat("minTime", 1000f);
+                if (minTime >= myTime)
+                {
+                    minTime = myTime;
+                    PlayerPrefs.SetFloat("minTime", minTime);
+                }
 
-            
+                SceneManager.LoadScene("Close");
+                return true;
+            }
+            else
+                return false;
         }
     }
 
 
-
     private void Awake()
-    { 
-   
-
-
+    {
         Instance = this;
+
     }
     public void CalculateScore(bool isApple)
     {
-       if (isApple)
+        if (isApple)
         {
-            score++;
+            BestScore.Score++;
             nextNoteGroupUnlockCnt++;
             if (NoteGroupCreateScore <= nextNoteGroupUnlockCnt)
             {
@@ -49,35 +60,33 @@ public class GameManager : MonoBehaviour
                 NoteManager.Instance.CreateNoteGroup();
             }
 
-            if (maxScore <= score) 
+            if (maxScore <= BestScore.Score)
             {
-                gameClearObj.SetActive(true);
-                Debug.Log("GameClear!..............."); 
+                SceneManager.LoadScene(3);
+                Debug.Log("GameClear!...............");
             }
-             
 
-            
-            
-        }else
+
+
+
+
+        }
+        else
         {
-            score--;
+            BestScore.Score--;
             nextNoteGroupUnlockCnt--;
         }
-        UiManager.instance.OnScoreChange(this.score, maxScore);
+        UiManager.instance.OnScoreChange(BestScore.Score, maxScore);
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-    }
-        
+
 
     private void Start()
     {
-        UiManager.instance.OnScoreChange(this.score, maxScore);
+        UiManager.instance.OnScoreChange(BestScore.Score, maxScore);
         NoteManager.Instance.Create();
 
-        gameOverObj.SetActive(false);
+
         gameClearObj.SetActive(false);
 
         StartCoroutine(TimeCouroutine());
@@ -88,7 +97,7 @@ public class GameManager : MonoBehaviour
         float currentTime = 0;
         while (currentTime < maxtime)
         {
-
+            myTime = currentTime;
             currentTime += Time.deltaTime;
             UiManager.instance.OnTimerChange(currentTime, maxtime);
             yield return null;
@@ -98,7 +107,17 @@ public class GameManager : MonoBehaviour
                 yield break;
             }
         }
+
+
+
         SceneManager.LoadScene(2);
+
+
+
+        if (BestScore.Score > BestScore.besttime)
+        {
+            BestScore.besttime = BestScore.Score;
+        }
     }
 
 }
