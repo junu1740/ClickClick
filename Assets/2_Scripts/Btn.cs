@@ -19,7 +19,7 @@ public class OverBtn : MonoBehaviour
 
     public void Menu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 
@@ -27,12 +27,12 @@ public class OverBtn : MonoBehaviour
     public void Restart()
     {
        
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         BestScore.Score = 0;
     }
     public void start()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void exit()

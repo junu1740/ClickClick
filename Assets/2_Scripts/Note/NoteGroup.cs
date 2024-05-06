@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class NoteGroup : MonoBehaviour
 {
     [SerializeField] private int noteMaxNum = 5;
@@ -18,7 +19,7 @@ public class NoteGroup : MonoBehaviour
     [SerializeField] private Animation anim;
     private KeyCode keyCode;
 
-    AudioSource audioSource;
+     AudioSource audioSource;
 
     public AnimationClip spawnanim;
     public AnimationClip Btnanim;
@@ -58,7 +59,7 @@ public class NoteGroup : MonoBehaviour
         GameObject noteGameObj = Instantiate(notePrefab);
         noteGameObj.transform.SetParent(noteSpawn.transform);
 
-        noteGameObj.transform.localPosition = Vector3.up * noteList.Count * noteGroupGap;
+        noteGameObj.transform.localPosition = Vector3.up * noteList.Count *  noteGroupGap;
         Note note = noteGameObj.GetComponent<Note>();
         note.SetSprite(isApple);
         noteList.Add(note);
